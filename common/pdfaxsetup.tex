@@ -1,0 +1,29 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Variables initiating  %%%
+\newcounter{colourmode}
+\newcounter{pdftype}
+\newcounter{iccinsert}
+
+%% Control of colour mode and pdf type
+\setcounter{colourmode}{1}  % 0 --- undefined; 1 --- cmyk (always for pdf/x); 2 --- rgb
+\setcounter{pdftype}{0}     % 0 --- undefined; 1 --- pdf/x; 2 --- pdf/a
+\setcounter{iccinsert}{0}   % 0 --- don't upload icc cmyk inside pdf/x; 1 --- upload icc cmyk inside pdf/x;
+\newcommand{\pdfapart}{1}        % PDF/A part
+\newcommand{\pdfaconformance}{B} % PDF/A conformance
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifXeTeX
+%%%%Needs to be compiled with commandline: "xelatex.exe -synctex=1 -interaction=nonstopmode -output-driver="xdvipdfmx -V 3 -z 0" --shell-escape %.tex" % as PDF 1.3 required by PDF/X
+\else
+    \ifLuaTeX
+        % http://tug.org/TUGboat/tb37-1/tb115hagen-pdf.pdf
+        \ifnum\luatexversion>81
+            \RequirePackage{luatex85}
+        \else
+        \fi
+    \else
+    \fi
+    \pdfobjcompresslevel=0%
+    \pdfminorversion=3% Setting version of pdf % must be set 3 for PDF 1.3 required by PDF/X
+    \pdfinclusioncopyfonts=1% If positive, this parameter forces pdfTEX to include fonts from a pdf file loaded with \pdfximage, even if those fonts are available on disk. Bigger files might be created, but included pdf files are sure to be embedded with the adequate fonts; indeed, the fonts on disk might be different from the embedded ones, and glyphs might be missing.
+\fi

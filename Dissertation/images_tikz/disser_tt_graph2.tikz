@@ -1,0 +1,116 @@
+\begin{tikzpicture}[x=1pt,y=1pt]
+\definecolor{fillColor}{RGB}{255,255,255}
+\path[use as bounding box,fill=fillColor] (0,0) rectangle (398.34,159.34);
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (398.34,159.34);
+\definecolor{drawColor}{RGB}{255,255,255}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round,line cap=round,fill=fillColor] ( -0.00,  0.00) rectangle (398.34,159.34);
+\end{scope}
+\begin{scope}
+\path[clip] ( 38.51, 29.60) rectangle (394.12,155.96);
+\definecolor{fillColor}{RGB}{255,255,255}
+
+\path[fill=fillColor] ( 38.51, 29.60) rectangle (394.12,155.96);
+\definecolor{drawColor}{gray}{0.98}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 38.51, 53.58) --
+	(394.12, 53.58);
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 38.51, 90.04) --
+	(394.12, 90.04);
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 38.51,126.51) --
+	(394.12,126.51);
+\definecolor{drawColor}{gray}{0.80}
+
+\path[draw=drawColor,line width= 0.3pt,line join=round] ( 38.51, 35.34) --
+	(394.12, 35.34);
+
+\path[draw=drawColor,line width= 0.3pt,line join=round] ( 38.51, 71.81) --
+	(394.12, 71.81);
+
+\path[draw=drawColor,line width= 0.3pt,line join=round] ( 38.51,108.28) --
+	(394.12,108.28);
+
+\path[draw=drawColor,line width= 0.3pt,line join=round] ( 38.51,144.74) --
+	(394.12,144.74);
+
+\path[draw=drawColor,line width= 0.3pt,line join=round] (135.49, 29.60) --
+	(135.49,155.96);
+
+\path[draw=drawColor,line width= 0.3pt,line join=round] (297.14, 29.60) --
+	(297.14,155.96);
+\definecolor{fillColor}{RGB}{128,128,128}
+
+\path[fill=fillColor] ( 62.76, 35.34) rectangle (208.23,150.22);
+\definecolor{fillColor}{gray}{0.80}
+
+\path[fill=fillColor] (224.40, 35.34) rectangle (369.88,107.76);
+\definecolor{drawColor}{RGB}{0,0,0}
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.00] at (135.49, 87.80) {100 \%};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.00] at (297.14, 66.57) {63 \%};
+
+\path[draw=drawColor,line width= 0.9pt,line join=round,line cap=round] ( 38.51, 29.60) rectangle (394.12,155.96);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (398.34,159.34);
+\definecolor{drawColor}{RGB}{0,0,0}
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.86] at ( 33.11, 31.09) {0};
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.86] at ( 33.11, 67.56) {0,2};
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.86] at ( 33.11,104.03) {0,4};
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.86] at ( 33.11,140.49) {0,6};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (398.34,159.34);
+\definecolor{drawColor}{RGB}{0,0,0}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 35.51, 35.34) --
+	( 38.51, 35.34);
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 35.51, 71.81) --
+	( 38.51, 71.81);
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 35.51,108.28) --
+	( 38.51,108.28);
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 35.51,144.74) --
+	( 38.51,144.74);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (398.34,159.34);
+\definecolor{drawColor}{RGB}{0,0,0}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] (135.49, 26.60) --
+	(135.49, 29.60);
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] (297.14, 26.60) --
+	(297.14, 29.60);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (398.34,159.34);
+\definecolor{drawColor}{RGB}{0,0,0}
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.86] at (135.49, 15.70) {Неконтролируемое};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.86] at (297.14, 15.70) {Контролируемое};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (398.34,159.34);
+\definecolor{drawColor}{RGB}{0,0,0}
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.86] at (216.32,  2.40) {Охлаждение};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (398.34,159.34);
+\definecolor{drawColor}{RGB}{0,0,0}
+
+\node[text=drawColor,rotate= 90.00,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.86] at ( 10.90, 92.78) {Напряжение, МПа\hspace*{1.5em}};
+\end{scope}
+\end{tikzpicture}

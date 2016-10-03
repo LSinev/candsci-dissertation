@@ -1,0 +1,46 @@
+%%% Изображения %%%
+\graphicspath{{images/}{Synopsis/images/}}         % Пути к изображениям
+
+%%% Макет страницы %%%
+\geometry{a5paper, top=14mm, bottom=14mm, inner=18mm, outer=10mm, footskip=5mm, nomarginpar}%, showframe
+\setlength{\topskip}{0.2ex}   %размер дополнительного верхнего поля
+
+%%% Интервалы %%%
+%% Реализация средствами класса (на основе setspace) ближе к типографской классике.
+%% И правит сразу и в таблицах (если со звёздочкой)
+\SingleSpacing      % Одинарный интервал
+
+%%% Выравнивание и переносы %%%
+%% http://tex.stackexchange.com/questions/241343/what-is-the-meaning-of-fussy-sloppy-emergencystretch-tolerance-hbadness
+%% http://www.latex-community.org/forum/viewtopic.php?p=70342#p70342
+\tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em % В случае проблем регулировать в первую очередь
+\hfuzz 0.3pt
+\vfuzz \hfuzz
+%\raggedbottom
+%\sloppy                 % Избавляемся от переполнений
+\clubpenalty=10000      % Запрещаем разрыв страницы после первой строки абзаца
+\widowpenalty=10000     % Запрещаем разрыв страницы после последней строки абзаца
+
+%%% Колонтитулы %%%
+\makeevenhead{plain}{}{}{} %чётные страницы
+\makeoddhead{plain}{}{}{} %нечётные страницы
+\makeevenfoot{plain}{\thepage}{}{} %чётные страницы
+\makeoddfoot{plain}{}{}{\thepage} %нечётные страницы
+\pagestyle{plain}
+
+%%% Размеры заголовков %%%
+\setsecheadstyle{\normalfont\large\bfseries}
+\setbeforesecskip{1.0ex plus .2ex minus .2ex}
+\setaftersecskip{1.0ex plus .2ex}
+\renewcommand*{\chaptitlefont}{\normalfont\large\bfseries}
+
+\setsecnumdepth{none}
+
+%%% Подписи %%%
+\captionsetup[table]{font=singlespacing,position=top,skip=0pt}
+\captionsetup[figure]{labelsep=period,font=singlespacing,position=bottom}
+
+%%% Отступы у плавающих блоков %%%
+\setlength\textfloatsep{1ex}

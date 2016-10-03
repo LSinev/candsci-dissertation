@@ -1,0 +1,17 @@
+\usepackage{tabu, tabulary}  %таблицы с автоматически подбирающейся шириной столбцов
+\usepackage{fr-longtable}    %ради \endlasthead
+
+% Листинги с исходным кодом программ
+\usepackage{fancyvrb}
+\usepackage{listings}
+\lccode`\~=0\relax %Без этого хака из-за особенностей пакета listings перестают работать конструкции с \MakeLowercase и т. п. в (xe|lua)latex
+
+%%% Микротипографика
+\ifnumequal{\value{draft}}{0}{% Только если у нас режим чистовика
+    \usepackage[final]{microtype}[2016/05/14] % улучшает представление букв и слов в строках, может помочь при наличии отдельно висящих слов
+}{}
+
+\ifnumequal{\value{imgprecompile}}{1}{% Только если у нас включена предкомпиляция
+    \usetikzlibrary{external}
+    \tikzexternalize[prefix=Dissertation/images_tikz_compiled/] % activate!
+}{}

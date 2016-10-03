@@ -1,0 +1,83 @@
+%%%%%%%% Common User styles
+
+\def\nb-{\nobreak\hskip0pt\hbox{-}\nobreak\hskip0pt}
+
+%Корректное многоточие в LaTeX с равномерными промежутками между точками для тех, кто пишет в соответствии с правилами русского языка: %http://kostyrka.ru/blog/archives/883
+%Если кому-то не хочется подключать пакет xspace, то предлагается самая робастная и компактная версия кода, в которой для обеспечения пробела после многоточия необходимо поставить пустую группу ({}):
+\def\ellipsiskern{.1em}
+\newcommand{\ldotst}{.\kern\ellipsiskern.\kern\ellipsiskern.} %... % \ldotst{}
+\newcommand{\ldotse}{!\kern\ellipsiskern.\kern\ellipsiskern.} %!.. % \ldotse{}
+\newcommand{\ldotsq}{?\kern\ellipsiskern\kern-.11em.\kern\ellipsiskern.} %?.. % \ldotsq{}
+
+\renewcommand{\textdegree}{\ensuremath{{}^\circ}}
+% Имеет смысл подумать о взаимодействии с пакетом repltext. В pdflatex в выдаче заменять на символ градуса, а в lua/xe(la)tex сразу символ градуса вписывать.
+
+\sisetup{ %siunitx setup
+    output-decimal-marker={,},
+}
+
+%%%% Русская традиция начертания математических знаков
+\renewcommand{\le}{\ensuremath{\leqslant}}
+\renewcommand{\leq}{\ensuremath{\leqslant}}
+\renewcommand{\ge}{\ensuremath{\geqslant}}
+\renewcommand{\geq}{\ensuremath{\geqslant}}
+\renewcommand{\emptyset}{\varnothing}
+
+%%%% Русская традиция начертания греческих букв (греческие буквы вертикальные, через пакет upgreek)
+\renewcommand{\epsilon}{\ensuremath{\upvarepsilon}}   %  русская традиция записи
+\renewcommand{\phi}{\ensuremath{\upvarphi}}
+\renewcommand{\kappa}{\ensuremath{\varkappa}}
+%%%
+\renewcommand{\alpha}{\upalpha}
+\renewcommand{\beta}{\upbeta}
+\renewcommand{\gamma}{\upgamma}
+\renewcommand{\delta}{\updelta}
+\renewcommand{\varepsilon}{\upvarepsilon}
+\renewcommand{\zeta}{\upzeta}
+\renewcommand{\eta}{\upeta}
+\renewcommand{\theta}{\uptheta}
+\renewcommand{\vartheta}{\upvartheta}
+\renewcommand{\iota}{\upiota}
+\renewcommand{\kappa}{\upkappa}
+\renewcommand{\lambda}{\uplambda}
+\renewcommand{\mu}{\upmu}
+\renewcommand{\nu}{\upnu}
+\renewcommand{\xi}{\upxi}
+\renewcommand{\pi}{\uppi}
+\renewcommand{\varpi}{\upvarpi}
+\renewcommand{\rho}{\uprho}
+%\renewcommand{\varrho}{\upvarrho}
+\renewcommand{\sigma}{\upsigma}
+%\renewcommand{\varsigma}{\upvarsigma}
+\renewcommand{\tau}{\uptau}
+\renewcommand{\upsilon}{\upupsilon}
+\renewcommand{\varphi}{\upvarphi}
+\renewcommand{\chi}{\upchi}
+\renewcommand{\psi}{\uppsi}
+\renewcommand{\omega}{\upomega}
+
+\usepackage{letltxmacro} %http://tex.stackexchange.com/a/47372/79756
+\LetLtxMacro{\oldint}{\int}
+
+\makeatletter
+      \@ifpackagewith{wasysym}{integrals}
+      {
+
+      }{%
+      \usepackage{scalerel} %http://tex.stackexchange.com/a/222280/79756
+      \renewcommand{\int}{\mathop{\scalerel*{\rotatebox{12}{$\!\scriptstyle\oldint\!$}}{\oldint}}}
+
+      }
+\makeatother
+
+\colorlet{siliconcolour}{black!30} % define color for silicon mass
+\colorlet{glasscolour}{white} % define color for glass mass
+
+\hyphenation{Coventor-ware}
+
+\newcommand\blank[1][\textwidth]{\noindent\rule[-.2ex]{#1}{.4pt}}
+
+\mathtoolsset{showonlyrefs=true} % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+%IMPORTANT Это фактически у меня вызвало баг, описанный в документации. Во-первых всё, что без eqref лишается нумерации, а такие места у меня есть в третьей главе, что при ссылках, тоже выдает неверно потом. И для слишком широких формул. Unfortunately the use of the showonlyref introduce a bug within amsmath’s typesetting of formula versus equation number.
+
+\newcommand\mmark{} %Специальное выделение для блоков текста

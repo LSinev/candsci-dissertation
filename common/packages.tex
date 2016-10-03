@@ -1,0 +1,141 @@
+%%% Поля и разметка страницы %%%
+\usepackage{lscape}
+\usepackage{geometry}                               % Для последующего задания полей
+
+%%% Математические пакеты %%%
+\usepackage{amsthm,amsfonts,amsmath,amssymb,amscd}  % Математические дополнения от AMS
+\usepackage{mathtools}                              % Добавляет окружение multlined
+
+%%%% Установки для размера шрифта 14 pt %%%%
+%% Формирование переменных и констант для сравнения (один раз для всех подключаемых файлов)%%
+%% должно располагаться до вызова пакета fontspec или polyglossia, потому что они сбивают его работу
+\newlength{\curtextsize}
+\newlength{\bigtextsize}
+\setlength{\bigtextsize}{13.9pt}
+
+\makeatletter
+\setlength{\curtextsize}{\f@size pt}
+\makeatother
+
+%%% Кодировки и шрифты %%%
+\ifboolexpr{test {\ifnumgreater{\value{pdftype}}{0}} and not bool {xetexorluatex}}{%
+    %%% Решение проблемы копирования текста в буфер кракозябрами
+    \RequirePDFTeX
+    \input glyphtounicode.tex
+    \input glyphtounicode-cmr.tex %from pdfx package
+    \pdfgentounicode=1
+}{}
+
+\ifxetexorluatex
+    \usepackage[tuenc]{fontspec}[2016/02/01]
+    \usepackage{polyglossia}[2014/05/21]            % Поддержка многоязычности (fontspec подгружается автоматически)
+\else
+    \RequirePDFTeX                                  % tests for PDFTEX use and throws an error if a different engine is being used
+    \usepackage[noTeX]{mmap}
+    \usepackage{cmap}                               % Улучшенный поиск русских слов в полученном pdf-файле
+    \defaulthyphenchar=127                          % Если стоит до fontenc, то переносы не впишутся в выделяемый текст при копировании его в буфер обмена
+    \usepackage[T2A]{fontenc}                       % Поддержка русских букв
+    \usepackage[utf8]{inputenc}[2014/04/30]         % Кодировка utf8
+    \usepackage[english, russian]{babel}[2014/03/24]% Языки: русский, английский
+    \IfFileExists{pscyr.sty}{\usepackage{pscyr}}{}  % Красивые русские шрифты
+\fi
+
+%%% Оформление абзацев %%%
+\usepackage{indentfirst}                            % Красная строка
+
+%%% Цвета %%%
+\ifboolexpr{test {\ifnumequal{\value{colourmode}}{1}} or test {\ifnumequal{\value{pdftype}}{1}}}{
+    \usepackage[dvipsnames, table, hyperref, cmyk]{xcolor}  % cmyk colours --- needed for PDF/X, questionable for PDF/A
+}{%
+    \ifnumequal{\value{colourmode}}{2}{%
+        \usepackage[dvipsnames, table, hyperref, rgb]{xcolor}  % rgb colours
+    }{%
+        \usepackage[dvipsnames, table, hyperref]{xcolor}
+    }
+}
+
+%%% PDF/A PDF/X needed packages %%%
+\ifboolexpr{test {\ifnumgreater{\value{pdftype}}{0}} and bool {XeTeX}}{%
+    \usepackage{atbegshi}
+    \usepackage[russian]{datetime2} % for \pdfdate command
+}{}
+
+%%% Таблицы %%%
+\usepackage{longtable}                              % Длинные таблицы
+\usepackage{multirow,makecell}                      % Улучшенное форматирование таблиц
+
+%%% Общее форматирование
+\usepackage{soulutf8}                               % Поддержка переносоустойчивых подчёркиваний и зачёркиваний
+\usepackage{icomma}                                 % Запятая в десятичных дробях
+
+
+%%% Гиперссылки %%%
+\usepackage{hyperxmp}[2016/04/27] % extended pdf options
+\ifnumless{\value{pdftype}}{2}{%
+    \usepackage{hyperref}[2012/11/06]
+}{%
+    \usepackage[pdfa]{hyperref}[2012/11/06] %The default value of the new option 'pdfa' is 'false'. It influences  the loading of the package and cannot be changed after hyperref is  loaded. Hyperxmp also uses it and set pdf/a xmp options
+}
+
+%%% Изображения %%%
+\usepackage{graphicx}[2014/04/25]                   % Подключаем пакет работы с графикой
+
+%%% Списки %%%
+\usepackage{enumitem}
+
+%%% Подписи %%%
+\usepackage{caption}[2013/05/02]                    % Для управления подписями (рисунков и таблиц) % Может управлять номерами рисунков и таблиц с caption %Иногда может управлять заголовками в списках рисунков и таблиц
+\usepackage{subcaption}[2013/02/03]                 % Работа с подрисунками и подобным
+
+%%% Счётчики %%%
+\usepackage[figure,table]{totalcount}               % Счётчик рисунков и таблиц
+\usepackage{totcount}                               % Пакет создания счётчиков на основе последнего номера подсчитываемого элемента (может требовать дважды компилировать документ)
+\usepackage{totpages}                               % Счётчик страниц, совместимый с hyperref (ссылается на номер последней страницы). Желательно ставить последним пакетом в преамбуле
+
+\ifnumequal{\value{draft}}{1}{% Черновик
+    \usepackage[firstpage]{draftwatermark}
+    \SetWatermarkText{DRAFT}
+    \SetWatermarkFontSize{14pt}
+    \SetWatermarkScale{15}
+    \SetWatermarkAngle{45}
+}{}
+
+%%% Определение скорости компиляции страниц %%%
+\ifXeTeX
+\else
+    \usepackage{atbegshi}                           % Пакет запуска команд во время компиляции
+    \ifLuaTeX
+        \usepackage{pdftexcmds}                     % Поддержка в luatex некоторых команд из pdftex
+        \makeatletter
+        \newcommand\showtimer{%
+          \message{^^Jtimer: \the\numexpr\the\pdf@elapsedtime*1000/65536\relax}%
+          \pdf@resettimer}
+        \makeatother
+    \else
+        %http://tex.stackexchange.com/a/211572/79756
+        \newcommand\showtimer{%
+          \message{^^Jtimer: \the\numexpr\the\pdfelapsedtime*1000/65536\relax}%
+          \pdfresettimer}
+    \fi
+    \AtBeginDocument{\showtimer}
+    \AtBeginShipout {\showtimer}
+    %would print the time it took (in milliseconds) for each page to be output
+    %For evaluation you can extract those lines:
+    %grep '^timer:' filename.log > Compiletime.txt
+\fi
+
+%%% Common user packages
+\usepackage{siunitx}
+
+\usepackage{tikz}
+
+\usepackage{upgreek} % прямые греческие ради русской традиции
+
+% Отметка о версии черновика на каждой странице
+\ifnumequal{\value{draft}}{1}{% Черновик
+   \IfFileExists{.git/gitHeadInfo.gin}{
+      \usepackage[mark,pcount]{gitinfo2}
+      \renewcommand{\gitMark}{rev.\gitAbbrevHash\quad\gitCommitterEmail\quad\gitAuthorIsoDate}
+      \renewcommand{\gitMarkFormat}{\color{Gray}\small\bfseries}
+   }{}
+}{}

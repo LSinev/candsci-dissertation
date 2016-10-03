@@ -1,0 +1,44 @@
+% !TeX program = pdflatex
+% !BIB program = biber 
+\PassOptionsToPackage{bookmarks=false}{hyperref}
+\input{common/documentpreload}     % Настройки файла перед загрузкой documentclass
+\input{common/pdfaxsetup}          % Настройки файла для создания PDF/A или PDF/X
+\setcounter{pdftype}{1}            % 0 --- undefined; 1 --- pdf/x; 2 --- pdf/a
+
+% Формат А4, 14pt (ГОСТ Р 7.0.11-2011, 5.3.6)
+\documentclass[a4paper,14pt,oneside,openany]{memoir}
+
+\input{common/setup}               % общие настройки шаблона
+\setcounter{imgprecompile}{0}      % Предкомпиляция tikz рисунков для ускорения работы: 0 --- без предкомпиляции; 1 --- пользоваться предскомпилированными pdf вместо генерации заново из tikz
+\input{common/packages}            % Пакеты общие для диссертации и автореферата
+\input{Dissertation/dispackages}   % Пакеты для диссертации
+\input{Dissertation/userpackages}  % Пакеты для специфических пользовательских задач
+
+\input{Dissertation/setup}         % Упрощённые настройки шаблона
+
+\input{Dissertation/preamblenames} % Переопределение именований, чтобы можно было и в преамбуле использовать
+\input{common/newnames}            % Новые переменные, которые могут использоваться во всём проекте
+
+\input{common/data}                % Основные сведения
+\input{common/styles}              % Стили общие для диссертации и автореферата
+\input{common/pdfaxcode}           % Код, отвечающий за атрибуты PDF/A и PDF/X
+\input{common/commonuserstyles}    % Пользовательские стили, общие для диссертации и автореферата
+\input{Dissertation/disstyles}     % Стили для диссертации
+\input{Dissertation/userstyles}    % Стили для специфических пользовательских задач
+\input{biblio/biblatex}            % Реализация пакетом biblatex через движок biber
+\begin{document}
+
+\input{common/renames}             % Переопределение именований
+
+% Структура диссертации (ГОСТ Р 7.0.11-2011, 4)
+\include{Dissertation/title}       % Титульный лист
+\include{Dissertation/contents}    % Оглавление
+\include{Dissertation/introduction}% Введение
+\include{Dissertation/part1}       % Глава 1
+\include{Dissertation/part2}       % Глава 2
+\include{Dissertation/part3}       % Глава 3
+\include{Dissertation/part4}       % Глава 4
+\include{Dissertation/conclusion}  % Заключение
+\include{Dissertation/acronyms}    % Список сокращений и условных обозначений
+\include{Dissertation/references}  % Список литературы
+\end{document}

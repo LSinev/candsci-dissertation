@@ -1,0 +1,15 @@
+%\RequirePackage[l2tabu,orthodox]{nag} % Раскомментировав, можно в логе получать рекомендации относительно правильного использования пакетов и предупреждения об устаревших и нерекомендуемых пакетах
+%%% Проверка используемого TeX-движка %%%
+\RequirePackage{iftex}
+\newif\ifxetexorluatex   % определяем новый условный оператор (http://tex.stackexchange.com/a/47579/79756)
+\ifXeTeX
+    \xetexorluatextrue
+\else
+    \ifLuaTeX
+        \xetexorluatextrue
+    \else
+        \xetexorluatexfalse
+    \fi
+\fi
+\RequirePackage{ifplatform}[2010/10/22]
+\RequirePackage{etoolbox}[2015/08/02]   %Для продвинутой проверки разных условий

@@ -1,0 +1,238 @@
+% Created by tikzDevice version 0.10.1 on 2016-06-05 17:57:19
+% !TEX encoding = UTF-8 Unicode
+\begin{tikzpicture}[x=1pt,y=1pt]
+\definecolor{white}{RGB}{255,255,255}
+\definecolor{gray98}{gray}{0.98}
+\definecolor{gray90}{gray}{0.90}
+\definecolor{black}{RGB}{0,0,0}
+\path[use as bounding box,fill=white] (0,0) rectangle (165.03,165.03);
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (165.03,165.03);
+
+\path[draw=white,line width= 0.6pt,line join=round,line cap=round,fill=white] ( -0.00,  0.00) rectangle (165.03,165.03);
+\end{scope}
+\begin{scope}
+\path[clip] ( 28.48, 25.69) rectangle (162.01,144.45);
+
+\path[fill=white] ( 28.48, 25.69) rectangle (162.01,144.45);
+
+\path[draw=gray98,line width= 0.6pt,line join=round] ( 28.48, 44.09) --
+	(162.01, 44.09);
+
+\path[draw=gray98,line width= 0.6pt,line join=round] ( 28.48, 82.22) --
+	(162.01, 82.22);
+
+\path[draw=gray98,line width= 0.6pt,line join=round] ( 28.48,120.34) --
+	(162.01,120.34);
+
+\path[draw=gray98,line width= 0.6pt,line join=round] ( 45.39, 25.69) --
+	( 45.39,144.45);
+
+\path[draw=gray98,line width= 0.6pt,line join=round] ( 71.41, 25.69) --
+	( 71.41,144.45);
+
+\path[draw=gray98,line width= 0.6pt,line join=round] ( 99.59, 25.69) --
+	( 99.59,144.45);
+
+\path[draw=gray98,line width= 0.6pt,line join=round] (123.43, 25.69) --
+	(123.43,144.45);
+
+\path[draw=gray98,line width= 0.6pt,line join=round] (145.11, 25.69) --
+	(145.11,144.45);
+
+\path[draw=gray90,line width= 0.2pt,line join=round] ( 28.48, 63.15) --
+	(162.01, 63.15);
+
+\path[draw=gray90,line width= 0.2pt,line join=round] ( 28.48,101.28) --
+	(162.01,101.28);
+
+\path[draw=gray90,line width= 0.2pt,line join=round] ( 28.48,139.40) --
+	(162.01,139.40);
+
+\path[draw=gray90,line width= 0.2pt,line join=round] ( 34.55, 25.69) --
+	( 34.55,144.45);
+
+\path[draw=gray90,line width= 0.2pt,line join=round] ( 56.23, 25.69) --
+	( 56.23,144.45);
+
+\path[draw=gray90,line width= 0.2pt,line join=round] ( 86.58, 25.69) --
+	( 86.58,144.45);
+
+\path[draw=gray90,line width= 0.2pt,line join=round] (112.59, 25.69) --
+	(112.59,144.45);
+
+\path[draw=gray90,line width= 0.2pt,line join=round] (134.27, 25.69) --
+	(134.27,144.45);
+
+\path[draw=gray90,line width= 0.2pt,line join=round] (155.95, 25.69) --
+	(155.95,144.45);
+
+\path[draw=black,line width= 1.4pt,dash pattern=on 4pt off 4pt ,line join=round] ( 34.55, 31.08) --
+	( 45.83, 43.75) --
+	( 47.56, 47.28) --
+	( 51.90, 56.75) --
+	( 56.23, 64.34) --
+	( 58.40, 69.42) --
+	( 73.57, 95.67) --
+	( 77.91,101.32) --
+	( 82.24,106.30) --
+	( 86.58,110.69) --
+	( 90.91,114.55) --
+	(112.59,127.94) --
+	(155.95,139.05);
+
+\path[draw=black,line width= 1.4pt,line join=round] ( 34.55, 52.54) --
+	( 45.83, 56.73) --
+	( 47.56, 57.90) --
+	( 51.90, 61.04) --
+	( 56.23, 63.56) --
+	( 58.40, 65.24) --
+	( 73.57, 73.93) --
+	( 77.91, 75.80) --
+	( 82.24, 77.45) --
+	( 86.58, 78.91) --
+	( 90.91, 80.19) --
+	(112.59, 84.62) --
+	(155.95, 88.30);
+
+\path[draw=black,line width= 1.4pt,dash pattern=on 1pt off 3pt on 4pt off 3pt ,line join=round] ( 34.55, 62.60) --
+	( 45.83, 62.82) --
+	( 47.56, 62.88) --
+	( 51.90, 63.04) --
+	( 56.23, 63.18) --
+	( 58.40, 63.26) --
+	( 73.57, 63.72) --
+	( 77.91, 63.82) --
+	( 82.24, 63.91) --
+	( 86.58, 63.98) --
+	( 90.91, 64.05) --
+	(112.59, 64.28) --
+	(155.95, 64.48);
+
+\path[draw=black,line width= 0.9pt,line join=round,line cap=round] ( 28.48, 25.69) rectangle (162.01,144.45);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (165.03,165.03);
+
+\node[text=black,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.90] at ( 23.08, 60.06) {0};
+
+\node[text=black,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.90] at ( 23.08, 98.18) {5};
+
+\node[text=black,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.90] at ( 23.08,136.30) {10};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (165.03,165.03);
+
+\path[draw=black,line width= 0.6pt,line join=round] ( 25.48, 63.15) --
+	( 28.48, 63.15);
+
+\path[draw=black,line width= 0.6pt,line join=round] ( 25.48,101.28) --
+	( 28.48,101.28);
+
+\path[draw=black,line width= 0.6pt,line join=round] ( 25.48,139.40) --
+	( 28.48,139.40);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (165.03,165.03);
+
+\path[draw=black,line width= 0.6pt,line join=round] ( 34.55, 22.69) --
+	( 34.55, 25.69);
+
+\path[draw=black,line width= 0.6pt,line join=round] ( 56.23, 22.69) --
+	( 56.23, 25.69);
+
+\path[draw=black,line width= 0.6pt,line join=round] ( 86.58, 22.69) --
+	( 86.58, 25.69);
+
+\path[draw=black,line width= 0.6pt,line join=round] (112.59, 22.69) --
+	(112.59, 25.69);
+
+\path[draw=black,line width= 0.6pt,line join=round] (134.27, 22.69) --
+	(134.27, 25.69);
+
+\path[draw=black,line width= 0.6pt,line join=round] (155.95, 22.69) --
+	(155.95, 25.69);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (165.03,165.03);
+
+\node[text=black,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.90] at ( 34.55, 14.09) {200};
+
+\node[text=black,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.90] at ( 56.23, 14.09) {700};
+
+\node[text=black,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.90] at ( 86.58, 14.09) {1400};
+
+\node[text=black,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.90] at (112.59, 14.09) {2000};
+
+\node[text=black,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.90] at (134.27, 14.09) {2500};
+
+\node[text=black,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.90] at (155.95, 14.09) {3000};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (165.03,165.03);
+
+\node[text=black,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.00] at ( 95.25,  2.40) {Толщина стекла, мкм};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (165.03,165.03);
+
+\node[text=black,rotate= 90.00,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.00] at (  9.29, 85.07) {Напряжение, МПа};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (165.03,165.03);
+
+\path[draw=black,line width= 0.6pt,line join=round,line cap=round,fill=white] ( 31.16,101.02) rectangle ( 95.22,142.07);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (165.03,165.03);
+
+\path[draw=white,line width= 0.6pt,line join=round,line cap=round,fill=white] ( 35.42,124.56) rectangle ( 59.51,134.19);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (165.03,165.03);
+
+\path[draw=black,line width= 1.4pt,dash pattern=on 4pt off 4pt ,line join=round] ( 37.83,129.37) -- ( 57.10,129.37);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (165.03,165.03);
+
+\path[draw=white,line width= 0.6pt,line join=round,line cap=round,fill=white] ( 35.42,114.92) rectangle ( 59.51,124.56);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (165.03,165.03);
+
+\path[draw=black,line width= 1.4pt,line join=round] ( 37.83,119.74) -- ( 57.10,119.74);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (165.03,165.03);
+
+\path[draw=white,line width= 0.6pt,line join=round,line cap=round,fill=white] ( 35.42,105.28) rectangle ( 59.51,114.92);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (165.03,165.03);
+
+\path[draw=black,line width= 1.4pt,dash pattern=on 1pt off 3pt on 4pt off 3pt ,line join=round] ( 37.83,110.10) -- ( 57.10,110.10);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (165.03,165.03);
+
+\node[text=black,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.90] at ( 90.95,126.27) {\(-\)60 \({}^\circ\)C};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (165.03,165.03);
+
+\node[text=black,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.90] at ( 90.95,116.64) {20 \({}^\circ\)C};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (165.03,165.03);
+
+\node[text=black,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.90] at ( 90.95,107.00) {85 \({}^\circ\)C};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (165.03,165.03);
+
+\node[text=black,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.00] at ( 95.25,157.69) {Третий инвариант тензора};
+
+\node[text=black,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.00] at ( 95.25,146.89) {девиатора напряжений};
+\end{scope}
+\end{tikzpicture}

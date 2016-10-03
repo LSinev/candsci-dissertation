@@ -1,0 +1,180 @@
+%%% Кодировки и шрифты %%%
+\ifxetexorluatex
+    \setmainlanguage[babelshorthands=true]{russian}  % Язык по-умолчанию русский с поддержкой приятных команд пакета babel
+    \setotherlanguage{english}                       % Дополнительный язык = английский (в американской вариации по-умолчанию)
+    \ifwindows
+        \setmonofont{cour}[                     % Courier New
+            Script = Latin,
+            Path = c:/windows/fonts/,
+            Extension = .ttf,
+            UprightFont = *,
+            BoldFont = *bd,
+            ItalicFont = *i,
+            BoldItalicFont = *bi]
+        \newfontfamily\cyrillicfonttt{cour}[    % Courier New
+            Script = Cyrillic,
+            Path = c:/windows/fonts/,
+            Extension = .ttf,
+            UprightFont = *,
+            BoldFont = *bd,
+            ItalicFont = *i,
+            BoldItalicFont = *bi]
+    \else
+        \setmonofont{Courier New}
+        \newfontfamily\cyrillicfonttt{Courier New}[Script = Cyrillic]
+    \fi
+    \ifXeTeX
+        \defaultfontfeatures{Ligatures=TeX,Mapping=tex-text}
+    \else
+        \defaultfontfeatures{Ligatures=TeX}
+    \fi
+    \ifwindows
+        \setmainfont{times}[                    % Times New Roman
+            Script = Latin,
+            Path = c:/windows/fonts/,
+            Extension = .ttf,
+            UprightFont = *,
+            BoldFont = *bd,
+            ItalicFont = *i,
+            BoldItalicFont = *bi]
+        \newfontfamily\cyrillicfont{times}[     % Times New Roman
+            Script = Cyrillic,
+            Path = c:/windows/fonts/,
+            Extension = .ttf,
+            UprightFont = *,
+            BoldFont = *bd,
+            ItalicFont = *i,
+            BoldItalicFont = *bi]
+        \setsansfont{arial}[                    % Arial
+            Script = Latin,
+            Path = c:/windows/fonts/,
+            Extension = .ttf,
+            UprightFont = *,
+            BoldFont = *bd,
+            ItalicFont = *i,
+            BoldItalicFont = *bi]
+        \newfontfamily\cyrillicfontsf{arial}[   % Arial
+            Script = Cyrillic,
+            Path = c:/windows/fonts/,
+            Extension = .ttf,
+            UprightFont = *,
+            BoldFont = *bd,
+            ItalicFont = *i,
+            BoldItalicFont = *bi]
+    \else
+        \setmainfont{Times New Roman}
+        \newfontfamily\cyrillicfont{Times New Roman}[Script = Cyrillic]
+        \setsansfont{Arial}
+        \newfontfamily\cyrillicfontsf{Arial}[Script = Cyrillic]
+    \fi
+\else
+    \IfFileExists{pscyr.sty}{\renewcommand{\rmdefault}{ftm}}{}
+\fi
+
+%%% Подписи %%%
+\captionsetup{%
+singlelinecheck=off,                % Многострочные подписи, например у таблиц
+skip=2pt,                           % Вертикальная отбивка между подписью и содержимым рисунка или таблицы определяется ключом
+justification=centering,            % Центрирование подписей, заданных командой \caption
+}
+
+%%% Рисунки %%%
+\DeclareCaptionLabelSeparator*{emdash}{~--- }             % (ГОСТ 2.105, 4.3.1)
+\captionsetup[figure]{labelsep=period,position=bottom}
+
+%%% Таблицы %%%
+\ifnumequal{\value{tabcap}}{0}{%
+    \newcommand{\tabcapalign}{\raggedright}  % по левому краю страницы или аналога parbox
+
+    \DeclareCaptionFormat{tablecaption}{\tabcapalign #1#2#3}
+    \captionsetup[table]{labelsep=emdash}                       % тире как разделитель идентификатора с номером от наименования
+}{%
+    \ifnumequal{\value{tablaba}}{0}{%
+        \newcommand{\tabcapalign}{\raggedright}  % по левому краю страницы или аналога parbox
+    }{}
+
+    \ifnumequal{\value{tablaba}}{1}{%
+        \newcommand{\tabcapalign}{\centering}    % по центру страницы или аналога parbox
+    }{}
+
+    \ifnumequal{\value{tablaba}}{2}{%
+        \newcommand{\tabcapalign}{\raggedleft}   % по правому краю страницы или аналога parbox
+    }{}
+
+    \ifnumequal{\value{tabtita}}{0}{%
+        \newcommand{\tabtitalign}{\raggedright}  % по левому краю страницы или аналога parbox
+    }{}
+
+    \ifnumequal{\value{tabtita}}{1}{%
+        \newcommand{\tabtitalign}{\centering}    % по центру страницы или аналога parbox
+    }{}
+
+    \ifnumequal{\value{tabtita}}{2}{%
+        \newcommand{\tabtitalign}{\raggedleft}   % по правому краю страницы или аналога parbox
+    }{}
+
+    \DeclareCaptionFormat{tablecaption}{\tabcapalign #1#2\par%  % Идентификатор таблицы на отдельной строке
+        \tabtitalign{#3}}                                       % Наименование таблицы строкой ниже
+    \captionsetup[table]{labelsep=period}                        % точечный разделитель идентификатора с номером от наименования
+}
+\DeclareCaptionFormat{tablenocaption}{\tabcapalign #1\strut}    % Наименование таблицы отсутствует
+
+\captionsetup[table]{format=tablecaption,singlelinecheck=off,position=top,skip=0pt}  % многострочные наименования и прочее
+\DeclareCaptionLabelFormat{continued}{Продолжение таблицы~#2}
+
+%%% Подписи подрисунков %%%
+\renewcommand{\thesubfigure}{\asbuk{subfigure}}           % Буквенные номера подрисунков
+\captionsetup[subfigure]{font={normalsize},               % Шрифт подписи названий подрисунков (не отличается от основного)
+    labelfont=it,
+    labelformat=default,                                  % Формат обозначения подрисунка
+    justification=centering,                              % Выключка подписей (форматирование), один из вариантов
+}
+
+\hypersetup{
+    unicode,
+    linktoc=all,                % both the section and page part are links
+    plainpages=false,           % Forces page anchors to be named by the Arabic form  of the page number, rather than the formatted form
+    colorlinks,                 % ссылки отображаются раскрашенным текстом, а не раскрашенным прямоугольником, вокруг текста
+    linkcolor={linkcolor},      % цвет ссылок типа ref, eqref и подобных
+    citecolor={citecolor},      % цвет ссылок-цитат
+    urlcolor={urlcolor},        % цвет гиперссылок
+    hidelinks,                  % Hide links (removing color and border)
+    pdftitle={\thesisTitle},    % Заголовок
+    pdfauthor={\thesisAuthor},  % Автор
+    pdfsubject={\thesisSpecialtyNumber\ \thesisSpecialtyTitle},      % Тема
+    pdfkeywords={\keywords},    % Ключевые слова
+    pdflang={ru},
+    pdfcopyright={This work is licensed under Creative Commons Public Attribution 4.0 International License}, %require hyperxmp package
+    pdflicenseurl={http://creativecommons.org/licenses/by/4.0/}, %require hyperxmp package
+    %If the copyright in the material is held by
+    %someone else, you cannot license the entire work
+    %CC-BY. The Springer (etc) permission for a
+    %doctoral thesis is a specific exception and does
+    %not extend to allowing you to relicense the
+    %underlying work.
+    pdfcontacturl = {\AuthorURL}
+}
+\ifnumequal{\value{draft}}{1}{% Черновик
+    \hypersetup{
+        draft,
+    }
+}{}
+
+%%% Шаблон %%%
+\DeclareRobustCommand{\todo}{\textcolor{red}}       % решаем проблему превращения названия цвета в результате \MakeUppercase, http://tex.stackexchange.com/a/187930/79756 , \DeclareRobustCommand protects \todo from expanding inside \MakeUppercase
+\AtBeginDocument{%
+    \setlength{\parindent}{2.5em}                   % Абзацный отступ. Должен быть одинаковым по всему тексту и равен пяти знакам (ГОСТ Р 7.0.11-2011, 5.3.7).
+}
+
+%%% Списки %%%
+% Используем короткое тире (endash) для ненумерованных списков (ГОСТ 2.105-95, пункт 4.1.7, требует дефиса, но так лучше смотрится)
+\renewcommand{\labelitemi}{\normalfont\bfseries{--}}
+
+% Перечисление строчными буквами русского алфавита (ГОСТ 2.105-95, 4.1.7)
+\makeatletter
+\AddEnumerateCounter{\asbuk}{\russian@alph}{щ}      % Управляем списками/перечислениями через пакет enumitem, а он 'не знает' про asbuk, потому 'учим' его
+\makeatother
+
+\setlist{nosep,%                                    % Единый стиль для всех списков (пакет enumitem), без дополнительных интервалов.
+    labelindent=\parindent,leftmargin=*%            % Каждый пункт, подпункт и перечисление записывают с абзацного отступа (ГОСТ 2.105-95, 4.1.8)
+}
