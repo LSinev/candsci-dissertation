@@ -36,8 +36,30 @@ style=gost-numeric,% стиль цитирования и библиографи
 %http://tex.stackexchange.com/a/141831/79756
 %There is a way to automatically map the language field to the langid field. The following lines in the preamble should be enough to do that.
 %This command will copy the language field into the langid field and will then delete the contents of the language field. The language field will only be deleted if it was successfully copied into the langid field.
+\makeatletter
+\ltx@iffilelater{biblatex-gost.def}{2017/01/28}% biblatex-gost 1.11a
+  {%
+    \newcommand{\conditionalsm}{%
+        \map[overwrite]{ % удаление "наук", чтобы biblatex-gost 1.11a не пытался его дублировать
+            \pertype{thesis}
+            \step[fieldsource=major,
+            match=\regexp{(\\\Wнаук)},
+            replace={}, %русские буквы просто так не вставить сюда
+            final]
+        }%
+    }
+  }{%
+    \newcommand{\conditionalsm}{}
+  }
+\ltx@iffilelater{biblatex-gost.def}{2017/02/05}% biblatex-gost 1.12
+  {%
+    \renewcommand{\conditionalsm}{}
+  }{%
+  }
+\makeatother
 \DeclareSourcemap{ %модификация bib файла перед тем, как им займётся biblatex 
     \maps{
+        \conditionalsm
         \map{% перекидываем значения полей language в поля langid, которыми пользуется biblatex
             \step[fieldsource=language, fieldset=langid, origfieldval, final]
             \step[fieldset=language, null]
@@ -290,6 +312,14 @@ page = {C\adddot},
          \iffieldundef{eventyear}{}{\bibstring{yearsign}}%
        }}%
   \newunit}
+
+\makeatletter
+\ltx@iffilelater{biblatex-gost.def}{2017/02/05}% biblatex-gost 1.12
+  {%
+    \renewcommand{\doublevolsdelim}{\textendash\penalty\value{abbrvpenalty}}
+  }{%
+  }
+\makeatother
 
 %% Счётчик использованных ссылок на литературу, обрабатывающий с учётом неоднократных ссылок
 %http://tex.stackexchange.com/a/66851/79756
